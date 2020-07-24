@@ -167,7 +167,7 @@ class Main extends React.Component {
                                     <div className={`backBtn d-lg-none ml-2 mt-1 mr-3`} onClick={this.props.toggleChatWindow}>
                                             <ChevronLeft />
                                         </div>
-                                        <h4 className={`pb-3 m-0`}>Settings </h4>
+                                        <h3 className={`pb-3 m-0`}>Settings </h3>
                               
                                 </div> 
 
