@@ -63,6 +63,13 @@ a,a:hover{
 .chat-window > .chat-content{
   flex: 2;
 }
+
+// .chat-footer{
+//   bottom: 0;
+//   position: absolute;
+//   width: 100%;
+// }
+
 .chat-footer  textarea{
   overflow: hidden;
   resize: none;
@@ -259,15 +266,16 @@ background-color:#f8f9fa;
   }
 }
 
-.root-nav li a{
+.root-nav li {
   padding: 0.8em;
 }
 
-.root-nav li a.active{
-background-color: #E9EAFF;
-   
+.root-nav li.active{
+
+    background-color: #E9EAFF; 
     border-radius: 5px;
 }
+
 .groupimgHolder{
   width: 4em;
   height: 4em;
