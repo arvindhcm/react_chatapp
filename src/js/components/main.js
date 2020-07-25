@@ -46,7 +46,7 @@ class Main extends React.Component {
                                 <div className={`user-header ml-lg-3`}>
                                     <Media>
 
-                                        <div className={`avatar avatar-sm mr-3`}>
+                                        <div className={`avatar avatar-online avatar-sm mr-3`}>
                                             <img className={`avatar-img`} src={nairobi}></img>
                                         </div>
 
@@ -76,26 +76,26 @@ class Main extends React.Component {
 
                                 <div className={`message message-left mt-3  px-3 py-2 bg-light`}>
                                     <div className={`message-content`}>
-                                        <p>  hey there how are you </p>
+                                        <p>  hey checkout these pics  😄  </p>
                                         <small className={`opacity-65 mt-2`} > 9.00pm</small>
                                     </div>
                                 </div>
 
                                 <div className={`message message-right mt-3  px-3 py-2 bg-primary text-light`}>
                                     <div className={`message-content`}>
-                                        <p>  get ouuta here  </p>
+                                        <p>   🤔🤔🤔🤔🤔  </p>
                                         <small className={`opacity-65 mt-2`} > 9.00pm</small>
                                     </div>
                                 </div>
 
-                                <div className={`message message-left mt-3  px-3 py-2 bg-light`}>
+                                <div className={`message message-left mt-3 px-3 py-2 bg-light`}>
                                     <div className={`message-content`}>
-                                        <div className={`d-flex img-holder align-items-center`}>
-                                            <img src={sey1}></img>
-                                            <img src={sey2}></img>
-                                            <img src={sey3}></img>
+                                        <div className={`d-flex flex-wrap img-holder align-items-center`}>
+                                            <img className={`img-fluid`} src={sey1}></img>
+                                            <img className={`img-fluid`} src={sey2}></img>
+                                            <img className={`img-fluid`} src={sey3}></img>
 
-                                            <span className={`MoreImageNumber`} > +5 </span>
+                                            <span className={`MoreImageNumber p-3 `} > +5 </span>
                                         </div>
                                         <small className={`opacity-65 mt-2`} > 9.00pm</small>
                                     </div>
@@ -159,17 +159,17 @@ class Main extends React.Component {
                 </Tab>
 
 
-                <Tab eventKey={2}>    
-                
-                    <div className={`container-fluid py-3`}>
-                               <div className={`d-flex`}>
+                <Tab className={`overflow-auto`} eventKey={2}>    
+                <div  className={`fixed-header d-flex pt-3 pb-2 bg-white z-1 pl-lg-3`}>
                               
-                                    <div className={`backBtn d-lg-none ml-2 mt-1 mr-3`} onClick={this.props.toggleChatWindow}>
-                                            <ChevronLeft />
-                                        </div>
-                                        <h3 className={`pb-3 m-0`}>Settings </h3>
+                              <div className={`backBtn d-lg-none ml-2 mt-1 mr-3`} onClick={this.props.toggleChatWindow}>
+                                      <ChevronLeft />
+                                  </div>
+                                  <h3 className={`pb-1 m-0`}>Settings </h3>
+                        
+                          </div> 
+                    <div className={`container-fluid py-4  mt-5`}>
                               
-                                </div> 
 
                                     <Accordion className={``} defaultActiveKey="0">
                                     <Card>
@@ -367,7 +367,6 @@ class Main extends React.Component {
                                     </Accordion>
 
 
-                                
                                 
                                 
 

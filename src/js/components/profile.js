@@ -11,6 +11,7 @@ import { Button, InputGroup, FormControl, Media, Card, Badge, Thumbnail,ListGrou
 
 
 import berlin from '../../images/berlin.jpg'
+import cm from '../../images/cm.jpg'
 
 
 class Profile extends React.Component{
@@ -28,7 +29,7 @@ class Profile extends React.Component{
                     <Card className={`mb-3`}>
                         <Card.Body className={`text-center py-4`}>
                             <div className={`avatar avatar-md mx-auto mb-3`}>
-                                <img className={ `avatar-img `} src={berlin} /> 
+                                <img className={ `avatar-img `} src={cm} /> 
                             </div>
                             <h6 className={`my-3`}>  Arvindh CM </h6>
                             <p className={`text-secondary medium`}>  Front end Developer, I focus on reusable and optimized code. </p>
@@ -125,7 +126,10 @@ class Profile extends React.Component{
 
                     </Form.Row>
 
+
+
             </div>
+            
             
               </div>)
     }

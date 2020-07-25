@@ -91,7 +91,7 @@ console.log(activeTab)
       <div className={`layout ` + (isDesktop? 'container':'') }>
 
 <div className={`navigation navbar py-3 px-4 border-top`}>
-          <ul className={`nav navbar-nav flex-row flex-lg-column flex-grow-1 justify-content-between justify-content-lg-center`} >
+          <ul className={`nav navbar-nav flex-row flex-lg-column flex-grow-1 justify-content-between justify-content-lg-center root-nav`} >
 
             <li><a>  <Edit onClick={e => this.switchTab(e,2) }/>  </a></li>
             <li className={`mt-lg-5`}>  <a>  <Users onClick={e => this.switchTab(e,3) }/>  </a> </li>

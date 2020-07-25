@@ -32,7 +32,7 @@ class Sidebar extends React.Component {
                 <Tab eventKey={1}>
                     <div className={`container-fluid py-3`}>
 
-                        <h3 className={`mb-3`}>  chat </h3>
+                        <h3 className={`mb-4`}>  chat </h3>
                         <form className="mb-3">
                             <InputGroup >
                                 <FormControl
@@ -50,14 +50,14 @@ class Sidebar extends React.Component {
                         <div className={`d-flex text-center my-3 overflow-auto`}>
 
                             <a className={`mr-3`}>
-                                <div className={`avatar avatar-sm mb-1`}>
+                                <div className={`avatar avatar-offline avatar-sm mb-1`}>
                                     <img className={`avatar-img`} src={berlin} />
                                 </div>
                                 <div className={`small `}> Berlin </div>
 
                             </a>
                             <a className={`mr-3`}>
-                                <div className={`avatar avatar-sm mb-1`}>
+                                <div className={`avatar avatar-online avatar-sm mb-1`}>
                                     <img className={`avatar-img`} src={denver}></img>
                                 </div>
                                 <div className={`small`}> Denver </div>
@@ -72,7 +72,7 @@ class Sidebar extends React.Component {
                             </a>
 
                             <a className={`mr-3`}>
-                                <div className={`avatar avatar-sm mb-1`}>
+                                <div className={`avatar avatar-online avatar-sm mb-1`}>
                                     <img className={`avatar-img`} src={nairobi}></img>
                                 </div>
                                 <div className={`small`}>  Nairobi </div>
@@ -80,7 +80,7 @@ class Sidebar extends React.Component {
                             </a>
 
                             <a className={`mr-3`}>
-                                <div className={`avatar avatar-sm mb-1`}>
+                                <div className={`avatar avatar-online avatar-sm mb-1`}>
                                     <img className={`avatar-img`} src={tokyo}></img>
                                 </div>
                                 <div className={`small`}> Tokyo </div>
