@@ -36,8 +36,8 @@ class Sidebar extends React.Component {
                         <form className="mb-3">
                             <InputGroup >
                                 <FormControl
-                                    placeholder="Recipient's username"
-                                    aria-label="Amount (to the nearest dollar)"
+                                    placeholder="Search"
+                                    aria-label=""
                                 />
                                 <InputGroup.Append>
                                     <InputGroup.Text>

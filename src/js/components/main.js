@@ -70,7 +70,7 @@ class Main extends React.Component {
                             </div>
                         </div>
 
-                        <div className={`chat-content`}>
+                        <div className={`chat-content overflow-auto pb-3`}>
                             <div className={`container`}>
 
 

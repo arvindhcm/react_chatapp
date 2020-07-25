@@ -98,11 +98,11 @@ console.log(activeTab)
 <div className={`navigation navbar py-3 px-4 border-top`}>
           <ul className={`nav navbar-nav flex-row flex-lg-column flex-grow-1 justify-content-between justify-content-lg-center root-nav`} >
 
-            <li><a>  <Edit onClick={e => this.switchTab(e,2) }/>  </a></li>
-            <li className={`mt-lg-5`}>  <a>  <Users onClick={e => this.switchTab(e,3) }/>  </a> </li>
-            <li className={`mt-lg-5`}> <a>  <MessageSquare onClick={ e => this.switchTab(e,1)} />  </a> </li>
-            <li className={`mt-lg-5`}> <a>  <User onClick={e => this.switchTab(e,4) }/>  </a> </li>
-            <li className={`mt-lg-5`}>  <a>  <Settings onClick={e => this.switchTabForMain(e,2) }/>  </a> </li>
+            <li><a className={this.state.activeTab == 2? 'active':''}>  <Edit onClick={e => this.switchTab(e,2) }/>  </a></li>
+            <li className={`mt-lg-5`}>  <a className={this.state.activeTab == 3? 'active':''}>  <Users onClick={e => this.switchTab(e,3) }/>  </a> </li>
+            <li className={`mt-lg-5`}> <a className={this.state.activeTab == 1? 'active':''}>  <MessageSquare onClick={ e => this.switchTab(e,1)} />  </a> </li>
+            <li className={`mt-lg-5`}> <a className={this.state.activeTab == 4? 'active':''}>  <User onClick={e => this.switchTab(e,4) }/>  </a> </li>
+            <li className={`mt-lg-5`}>  <a className={this.state.activeTabForMain ==2 && this.state.mainOpen? 'active':''}>  <Settings onClick={e => this.switchTabForMain(e,2) }/>  </a> </li>
 
           </ul>
 

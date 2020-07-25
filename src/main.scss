@@ -16,6 +16,10 @@ body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+a,a:hover{
+  text-decoration: none;
+  color: inherit;
+}
 
 .avatar, .avatar > img{
   border-radius: 50% ;
@@ -255,9 +259,13 @@ background-color:#f8f9fa;
   }
 }
 
+.root-nav li a{
+  padding: 0.8em;
+}
+
 .root-nav li a.active{
 background-color: #E9EAFF;
-    padding: 0.8em;
+   
     border-radius: 5px;
 }
 .groupimgHolder{
@@ -267,4 +275,8 @@ background-color: #E9EAFF;
   background-color: #8F8CE8;
   color: #fff;
 
+}
+
+.chat-footer .form-control:focus{
+  box-shadow:none;
 }

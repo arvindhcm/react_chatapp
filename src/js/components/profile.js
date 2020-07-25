@@ -81,7 +81,7 @@ class Profile extends React.Component{
                                 <Media className={`align-items-center`}>
                                     <Media.Body>
 
-                                       <p className={`m-0`}>  Github </p>
+                                       <p className={`m-0`}> <a href="https://github.com/arvindhcm" target="_blank"> Github </a>  </p>
 
                                     </Media.Body>    
 
@@ -92,7 +92,7 @@ class Profile extends React.Component{
                          <ListGroup.Item> 
                                 <Media className={`align-items-center`}>
                                     <Media.Body>
-                                       <p className={`m-0`}>  LinkedIn </p>
+                                       <p className={`m-0`}> <a href="https://www.linkedin.com/in/arvindh-c-m-240965120" target="_blank" >LinkedIn </a> </p>
 
                                     </Media.Body>    
 
@@ -103,7 +103,7 @@ class Profile extends React.Component{
                          <ListGroup.Item> 
                                 <Media className={`align-items-center`}>
                                     <Media.Body>
-                                       <p className={`m-0`}>  Instagram </p>
+                                       <p className={`m-0`}>  <a href="https://www.instagram.com/arvindhcm/" target="_blank" > Instagram  </a> </p>
 
                                     </Media.Body>    
 
