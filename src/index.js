@@ -16,6 +16,7 @@ import nairobi from './images/nairobi.jpg'
 import tokyo from './images/tokyo.jpg'
 import { Thumbnail } from "react-bootstrap";
 
+import { isMobile } from "react-device-detect";
 
 class Game extends React.Component {
 
@@ -29,9 +30,9 @@ class Game extends React.Component {
 
     this.state = {
       mainOpen:true,
-      activeTab:4,
+      activeTab:1,
       isDesktop: false,
-      activeTabForMain:2
+      activeTabForMain:1
     }
   }
 
@@ -70,6 +71,10 @@ console.log(activeTab)
   componentDidMount() {
     this.updatePredicate();
     window.addEventListener("resize", this.updatePredicate);
+
+    if(isMobile){
+      this.setState({mainOpen:false});
+    }
   }
 
   componentWillUnmount() {
