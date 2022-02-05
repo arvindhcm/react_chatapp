@@ -67,7 +67,7 @@ class Profile extends React.Component{
                                 <Media className={`align-items-center`}>
                                     <Media.Body>
                                        <p className={`small text-muted mb-2` }> Phone </p>
-                                       <p className={``}>  +91 8675135345 </p>
+                                       <p className={``}>  +91 6384769554 </p>
 
                                     </Media.Body>    
 
@@ -92,7 +92,7 @@ class Profile extends React.Component{
                          <ListGroup.Item> 
                                 <Media className={`align-items-center`}>
                                     <Media.Body>
-                                       <p className={`m-0`}> <a href="https://www.linkedin.com/in/arvindh-c-m-240965120" target="_blank" >LinkedIn </a> </p>
+                                       <p className={`m-0`}> <a href="https://www.linkedin.com/in/arvindhcm" target="_blank" >LinkedIn </a> </p>
 
                                     </Media.Body>    
 
