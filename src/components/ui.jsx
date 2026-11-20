@@ -74,13 +74,15 @@ export const inputClass =
 export const inputSmClass =
   "block w-full rounded-[0.2rem] border border-line bg-surface px-2 py-1 text-sm text-fg outline-none transition-colors focus:border-primary";
 
-export function SearchInput({ placeholder = "Search", className }) {
+export function SearchInput({ placeholder = "Search", className, value, onChange }) {
   return (
     <div className={cx("flex", className)}>
       <input
-        type="text"
+        type="search"
         placeholder={placeholder}
         aria-label={placeholder}
+        value={value}
+        onChange={onChange && (e => onChange(e.target.value))}
         className="min-w-0 flex-1 rounded-l border border-line bg-surface px-3 py-1.5 text-fg outline-none transition-colors placeholder:text-muted focus:border-primary"
       />
       <span className="flex items-center rounded-r border border-l-0 border-line bg-surface-alt px-3 text-muted transition-colors">

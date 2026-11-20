@@ -1,17 +1,8 @@
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, Paperclip, Phone, Send, Smile, Video } from "react-feather";
 
 import { contacts } from "../data";
-import sey1 from "../images/sey1.jpeg";
-import sey2 from "../images/sey2.jpeg";
-import sey3 from "../images/sey3.jpeg";
 import { Avatar, cx } from "./ui";
-
-const messages = [
-  { from: "them", time: "9.00pm", text: "hey checkout these pics  😄" },
-  { from: "me", time: "9.00pm", text: "🤔🤔🤔🤔🤔" },
-  { from: "them", time: "9.00pm", images: [sey1, sey2, sey3], more: 5 },
-  { from: "me", time: "9.00pm", text: "These are amazing 😍" },
-];
 
 function Message({ from, time, text, images, more }) {
   const mine = from === "me";
@@ -22,7 +13,7 @@ function Message({ from, time, text, images, more }) {
         mine ? "ml-12 bg-primary text-on-primary" : "mr-12 bg-surface-alt"
       )}
     >
-      {text && <p>{text}</p>}
+      {text && <p className="whitespace-pre-wrap break-words">{text}</p>}
       {images && (
         <div className="flex flex-wrap items-center">
           {images.map(src => (
@@ -44,8 +35,30 @@ export function BackButton({ onClick, className }) {
   );
 }
 
-export default function ChatWindow({ onBack }) {
+export default function ChatWindow({ messages, onSend, onBack }) {
   const contact = contacts.nairobi;
+  const [draft, setDraft] = useState("");
+  const endRef = useRef(null);
+
+  // Keep the newest message in view.
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ block: "end" });
+  }, [messages.length]);
+
+  const send = () => {
+    const text = draft.trim();
+    if (!text) return;
+    onSend(text);
+    setDraft("");
+  };
+
+  // Enter sends; Shift+Enter inserts a newline. Ignore Enter while an IME is composing.
+  const onKeyDown = e => {
+    if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+      e.preventDefault();
+      send();
+    }
+  };
 
   return (
     <div className="flex h-full flex-col">
@@ -67,9 +80,10 @@ export default function ChatWindow({ onBack }) {
       </header>
 
       <div className="flex-1 overflow-auto px-4 pb-4">
-        {messages.map((m, i) => (
-          <Message key={i} {...m} />
+        {messages.map(m => (
+          <Message key={m.id} {...m} />
         ))}
+        <div ref={endRef} />
       </div>
 
       <footer className="flex items-center justify-between border-t border-line py-2">
@@ -80,6 +94,9 @@ export default function ChatWindow({ onBack }) {
           <textarea
             placeholder="Type your message"
             aria-label="Type your message"
+            value={draft}
+            onChange={e => setDraft(e.target.value)}
+            onKeyDown={onKeyDown}
             className="h-[46px] min-w-0 flex-1 resize-none overflow-hidden bg-transparent px-3 leading-[2em] outline-none placeholder:text-muted"
           />
         </div>
@@ -89,7 +106,9 @@ export default function ChatWindow({ onBack }) {
           <button
             type="button"
             aria-label="Send"
-            className="flex size-[3em] cursor-pointer items-center justify-center rounded-full bg-primary text-on-primary transition hover:brightness-110"
+            onClick={send}
+            disabled={!draft.trim()}
+            className="flex size-[3em] cursor-pointer items-center justify-center rounded-full bg-primary text-on-primary transition hover:brightness-110 disabled:cursor-default disabled:opacity-60 disabled:hover:brightness-100"
           >
             <Send className="w-[1.3em]" />
           </button>

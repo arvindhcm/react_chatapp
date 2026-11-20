@@ -6,10 +6,18 @@ import SettingsPanel from "./components/SettingsPanel";
 import Sidebar from "./components/Sidebar";
 import ThemeSelector from "./components/ThemeSelector";
 import { cx } from "./components/ui";
+import { initialMessages } from "./data";
 import { applyTheme, getSavedTheme } from "./themes";
 
 // Same breakpoint the Bootstrap layout used (768px = Tailwind `md`).
 const isSmallScreen = () => !window.matchMedia("(min-width: 768px)").matches;
+
+// Matches the seed messages' "9.00pm" style.
+const formatTime = date => {
+  const h = date.getHours();
+  const m = String(date.getMinutes()).padStart(2, "0");
+  return `${h % 12 || 12}.${m}${h < 12 ? "am" : "pm"}`;
+};
 
 function NavItem({ label, icon: Icon, active, onClick }) {
   return (
@@ -37,6 +45,11 @@ export default function App() {
   // On phones the chat panel starts closed so the sidebar is visible first.
   const [mainOpen, setMainOpen] = useState(() => !isSmallScreen());
   const [theme, setTheme] = useState(getSavedTheme);
+  // Lives here (not in ChatWindow) so sent messages survive switching to Settings and back.
+  const [messages, setMessages] = useState(initialMessages);
+
+  const sendMessage = text =>
+    setMessages(prev => [...prev, { id: Date.now(), from: "me", time: formatTime(new Date()), text }]);
 
   const openMain = tab => {
     setMainTab(tab);
@@ -95,7 +108,7 @@ export default function App() {
           {mainTab === "settings" ? (
             <SettingsPanel onBack={() => setMainOpen(false)} />
           ) : (
-            <ChatWindow onBack={() => setMainOpen(false)} />
+            <ChatWindow messages={messages} onSend={sendMessage} onBack={() => setMainOpen(false)} />
           )}
         </main>
       </div>

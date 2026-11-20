@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Users } from "react-feather";
 
 import { contacts, people, recentChats } from "../data";
@@ -8,11 +9,19 @@ import { Avatar, Button, Card, ContactCard, LetterHeading, PageTitle, SearchInpu
 const storyOrder = ["berlin", "denver", "helsinki", "nairobi", "tokyo"];
 
 function Chats({ onOpenChat }) {
+  const [query, setQuery] = useState("");
+  const q = query.trim().toLowerCase();
+  const visibleChats = q
+    ? recentChats.filter(
+        ({ contact, preview }) => contact.name.toLowerCase().includes(q) || preview.toLowerCase().includes(q)
+      )
+    : recentChats;
+
   return (
     <div className="px-4 py-4">
       <PageTitle className="mb-6">chat</PageTitle>
 
-      <SearchInput className="mb-4" />
+      <SearchInput className="mb-4" value={query} onChange={setQuery} />
 
       <div className="my-4 flex gap-4 overflow-x-auto text-center">
         {storyOrder.map(key => {
@@ -27,7 +36,8 @@ function Chats({ onOpenChat }) {
       </div>
 
       <div className="flex flex-col gap-4">
-        {recentChats.map(({ contact, time, preview, unread }) => (
+        {visibleChats.length === 0 && <p className="py-4 text-center text-muted">No chats match “{query.trim()}”</p>}
+        {visibleChats.map(({ contact, time, preview, unread }) => (
           <button key={contact.name} type="button" onClick={onOpenChat} className="block cursor-pointer text-left">
             <Card className="relative flex items-start gap-4 p-5 hover:bg-surface-alt">
               <Avatar src={contact.avatar} alt={contact.name} />
@@ -48,17 +58,22 @@ function Chats({ onOpenChat }) {
 }
 
 function People() {
+  const [query, setQuery] = useState("");
+  const q = query.trim().toLowerCase();
+  const visiblePeople = q ? people.filter(person => person.name.toLowerCase().includes(q)) : people;
+
   return (
     <div className="px-4 py-4">
       <PageTitle className="pb-4">People</PageTitle>
-      <SearchInput placeholder="search for users" className="pb-4" />
+      <SearchInput placeholder="search for users" className="pb-4" value={query} onChange={setQuery} />
 
       <Button variant="light" block>
         Invite People <Users />
       </Button>
 
       <nav>
-        {people.map(person => (
+        {visiblePeople.length === 0 && <p className="py-4 text-center text-muted">No users match “{query.trim()}”</p>}
+        {visiblePeople.map(person => (
           <div key={person.name}>
             <LetterHeading>{person.name[0]}</LetterHeading>
             <ContactCard contact={person} subtitle={person.lastSeen} />
