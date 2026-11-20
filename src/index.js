@@ -8,6 +8,12 @@ import './main.scss';
 
 import Sidebar from "./js/components/sidebar"
 import Main from "./js/components/main"
+import ThemeSelector from "./js/components/themeSelector"
+import { getSavedTheme, applyTheme } from "./js/themes"
+
+// Apply before first render so there is no flash of the default theme.
+const initialTheme = getSavedTheme();
+applyTheme(initialTheme);
 
 import berlin from './images/berlin.jpg'
 import denver from './images/denver.png'
@@ -27,13 +33,20 @@ class Game extends React.Component {
     this.switchTab = this.switchTab.bind(this);
     this.switchTabForMain = this.switchTabForMain.bind(this);
     this.updatePredicate = this.updatePredicate.bind(this);
+    this.setTheme = this.setTheme.bind(this);
 
     this.state = {
       mainOpen:true,
       activeTab:1,
       isDesktop: false,
-      activeTabForMain:1
+      activeTabForMain:1,
+      theme: initialTheme
     }
+  }
+
+  setTheme(theme) {
+    applyTheme(theme);
+    this.setState({ theme });
   }
 
   toggleChatWindow ()  {
@@ -103,6 +116,9 @@ console.log(activeTab)
             <li className={`mt-lg-5 `+(this.state.activeTab == 1? 'active':'')}> <a>  <MessageSquare onClick={ e => this.switchTab(e,1)} />  </a> </li>
             <li className={`mt-lg-5 `+(this.state.activeTab == 4? 'active':'')}> <a >  <User onClick={e => this.switchTab(e,4) }/>  </a> </li>
             <li className={`mt-lg-5 `+(this.state.activeTabForMain == 2 && this.state.mainOpen? 'active':'')}> <a >  <Settings onClick={e => this.switchTabForMain(e,2) }/>  </a> </li>
+            <li className={`mt-lg-5`}>
+              <ThemeSelector theme={this.state.theme} onChange={this.setTheme} drop={isDesktop ? 'right' : 'up'} />
+            </li>
 
           </ul>
 

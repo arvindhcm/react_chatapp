@@ -288,3 +288,5 @@ background-color:#f8f9fa;
 .chat-footer .form-control:focus{
   box-shadow:none;
 }
+// Must stay last so theme tokens override the hardcoded colors above.
+@import "./scss/themes";
