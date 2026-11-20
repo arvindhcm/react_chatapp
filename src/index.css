@@ -81,19 +81,19 @@
   --online: #2cb67d;
 }
 
-[data-theme="forest"] {         /* Happy Hues #10 */
-  --page-bg: #abd1c6;
-  --on-page: #0f3433;
-  --surface: #004643;
-  --surface-alt: #0f3433;
-  --border: rgba(171, 209, 198, 0.16);
-  --text: #fffffe;
-  --text-muted: #abd1c6;
-  --primary: #f9bc60;
-  --on-primary: #001e1d;
-  --primary-soft: rgba(249, 188, 96, 0.18);
-  --accent: #e16162;
-  --online: #f9bc60;
+[data-theme="blossom"] {        /* Happy Hues #7 */
+  --page-bg: #fec7d7;
+  --on-page: #0e172c;
+  --surface: #fffffe;
+  --surface-alt: rgba(217, 212, 231, 0.5);
+  --border: rgba(14, 23, 44, 0.1);
+  --text: #0e172c;
+  --text-muted: rgba(14, 23, 44, 0.65);
+  --primary: #0e172c;
+  --on-primary: #fffffe;
+  --primary-soft: #fec7d7;
+  --accent: #a786df;
+  --online: #a786df;
 }
 
 [data-theme="ember"] {          /* Happy Hues #13 */
