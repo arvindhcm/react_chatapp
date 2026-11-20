@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Edit, MessageSquare, Settings, User, Users } from "react-feather";
+import { Edit, Linkedin, MessageSquare, Settings, User, Users } from "react-feather";
 
 import ChatWindow from "./components/ChatWindow";
 import SettingsPanel from "./components/SettingsPanel";
@@ -49,10 +49,10 @@ export default function App() {
   };
 
   return (
-    <div className="h-full bg-page transition-colors md:py-12">
+    <div className="flex h-full flex-col bg-page transition-colors md:pt-12">
       <div
         className={cx(
-          "flex h-full flex-col overflow-hidden rounded-[5px] border border-line bg-surface text-fg transition-colors",
+          "flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-[5px] border border-line bg-surface text-fg transition-colors",
           // Bootstrap .container widths
           "md:mx-auto md:max-w-[720px] md:flex-row lg:max-w-[960px] xl:max-w-[1140px]"
         )}
@@ -99,6 +99,27 @@ export default function App() {
           )}
         </main>
       </div>
+
+      <Footer />
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="shrink-0 px-4 py-1.5 text-center text-xs text-on-page transition-colors md:flex md:h-12 md:items-center md:justify-center md:py-0">
+      <p>
+        Vibe coded with AI · Design directed by{" "}
+        <a
+          href="https://www.linkedin.com/in/arvindhcm/"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 whitespace-nowrap font-bold underline-offset-2 hover:underline"
+        >
+          Arvindh CM
+          <Linkedin className="size-3" aria-hidden="true" />
+        </a>
+      </p>
+    </footer>
   );
 }

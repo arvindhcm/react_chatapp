@@ -9,7 +9,7 @@ export const THEMES = [
   { id: "ember",    name: "Ember",    source: 13, swatches: ["#0f0e17", "#a7a9be", "#ff8906", "#e53170"] },
 ];
 
-export const DEFAULT_THEME = "sky";
+export const DEFAULT_THEME = "midnight";
 const STORAGE_KEY = "chatapp-theme";
 
 export function getSavedTheme() {
