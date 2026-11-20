@@ -2,7 +2,7 @@
   "name": "reactapp",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://arvindhcm.github.io/react_chatapp/dist",
+  "homepage": "https://arvindhcm.github.io/react_chatapp/",
   "scripts": {
     "dev": "vite",
     "start": "vite",
