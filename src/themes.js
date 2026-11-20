@@ -1,5 +1,5 @@
 // Five palettes from https://www.happyhues.co/ (palettes 3, 1, 4, 10, 13).
-// Each theme's tokens live in src/scss/_themes.scss under [data-theme="<id>"];
+// Each theme's tokens live in src/index.css under [data-theme="<id>"];
 // `swatches` here are only for the preview chips in the theme selector.
 export const THEMES = [
   { id: "sky",      name: "Sky",      source: 3,  swatches: ["#fffffe", "#094067", "#3da9fc", "#ef4565"] },

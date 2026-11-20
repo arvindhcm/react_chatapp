@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Century Gothic", Futura, sans-serif;
+
+  /* Bootstrap 4's breakpoints, so the layout responds exactly as it did before. */
+  --breakpoint-sm: 36rem;   /* 576px */
+  --breakpoint-md: 48rem;   /* 768px */
+  --breakpoint-lg: 62rem;   /* 992px */
+  --breakpoint-xl: 75rem;   /* 1200px */
+}
+
+/* Expose the theme tokens below as Tailwind colors: bg-surface, text-muted, border-line, ... */
+@theme inline {
+  --color-page: var(--page-bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-line: var(--border);
+  --color-fg: var(--text);
+  --color-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent: var(--accent);
+  --color-online: var(--online);
+}
+
+/*
+ * Theme tokens. Values come from Happy Hues palettes (https://www.happyhues.co/);
+ * alpha variants (borders, soft fills) are derived from the same hexes.
+ */
+:root,
+[data-theme="sky"] {            /* Happy Hues #3 */
+  --page-bg: #d8eefe;
+  --surface: #fffffe;
+  --surface-alt: #eef7fe;
+  --border: rgba(9, 64, 103, 0.12);
+  --text: #094067;
+  --text-muted: #5f6c7b;
+  --primary: #3da9fc;
+  --on-primary: #fffffe;
+  --primary-soft: #d8eefe;
+  --accent: #ef4565;
+  --online: #3da9fc;
+}
+
+[data-theme="aqua"] {           /* Happy Hues #1 */
+  --page-bg: #f6efef;
+  --surface: #fffffe;
+  --surface-alt: #f0e2e1;
+  --border: rgba(24, 24, 24, 0.1);
+  --text: #181818;
+  --text-muted: rgba(46, 46, 46, 0.7);
+  --primary: #4fc4cf;
+  --on-primary: #181818;
+  --primary-soft: rgba(79, 196, 207, 0.22);
+  --accent: #994ff3;
+  --online: #4fc4cf;
+}
+
+[data-theme="midnight"] {       /* Happy Hues #4 */
+  --page-bg: #16161a;
+  --surface: #242629;
+  --surface-alt: #16161a;
+  --border: rgba(255, 255, 254, 0.08);
+  --text: #fffffe;
+  --text-muted: #94a1b2;
+  --primary: #7f5af0;
+  --on-primary: #fffffe;
+  --primary-soft: rgba(127, 90, 240, 0.22);
+  --accent: #2cb67d;
+  --online: #2cb67d;
+}
+
+[data-theme="forest"] {         /* Happy Hues #10 */
+  --page-bg: #abd1c6;
+  --surface: #004643;
+  --surface-alt: #0f3433;
+  --border: rgba(171, 209, 198, 0.16);
+  --text: #fffffe;
+  --text-muted: #abd1c6;
+  --primary: #f9bc60;
+  --on-primary: #001e1d;
+  --primary-soft: rgba(249, 188, 96, 0.18);
+  --accent: #e16162;
+  --online: #f9bc60;
+}
+
+[data-theme="ember"] {          /* Happy Hues #13 */
+  --page-bg: #2e2f3e;
+  --surface: #0f0e17;
+  --surface-alt: #2e2f3e;
+  --border: rgba(167, 169, 190, 0.16);
+  --text: #fffffe;
+  --text-muted: #a7a9be;
+  --primary: #ff8906;
+  --on-primary: #fffffe;
+  --primary-soft: rgba(255, 137, 6, 0.18);
+  --accent: #e53170;
+  --online: #ff8906;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    background-color: var(--page-bg);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--primary);
+  }
+}
